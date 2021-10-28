@@ -6,7 +6,12 @@ public class Main {
 		// Skriv ut spelplan
 		// rad och kolumn, 2D array
 		
-		// 3 rader, 3 kolumner = spelbrickan
+		// 1 | 2 | 3		[0][0]	[0][2]	[0][4]
+		// - + - + -
+		// 4 | 5 | 6		[2][0]	[2][2]	[2][4]
+		// - + - + -
+		// 7 | 8 | 9		[4][0]	[4][2]	[4][4]
+		
 		char[][] spelPlan = {{' ', '|', ' ', '|', ' '}, 
 							  {'-', '+', '-', '+', '-'},
 							  {' ', '|', ' ', '|', ' '},
