@@ -12,6 +12,14 @@ public class Main {
 							  {' ', '|', ' ', '|', ' '},
 							  {'-', '+', '-', '+', '-'},
 							  {' ', '|', ' ', '|', ' '}};
+		
+		// Skriva ut spelplanen mha 2st for-loopar
+		for(char[] rad : spelPlan)	{
+			for(char i : rad)	{
+				System.out.print(i);
+			}
+			System.out.println();
+		} // slut på for
 
 	}
 
