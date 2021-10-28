@@ -1,6 +1,6 @@
 package com.ya.gruppuppg;
 
-public class TicTacToe {
+public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("Testar TicTacToe");
