@@ -4,7 +4,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-	/*
+	
 		// Skriv ut spelplan
 		// rad och kolumn, 2D array
 		
@@ -68,7 +68,7 @@ public class Main {
 			System.out.println();
 		}
 		
-	 */
+	 
 	}
 
 }
