@@ -1,4 +1,8 @@
-	public static void main(String[] args) {
+package com.ya.gruppuppg;
+
+public class hasPlayerWon {
+
+public static void main(String[] args) {
 
 		// första raden
 		if ((spelPlan[0][0] == 'X' && spelPlan[0][2] == 'X' && spelPlan[0][4] == 'X') ||
@@ -28,3 +32,4 @@
 		}
 
 	}
+}
