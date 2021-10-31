@@ -1,0 +1,19 @@
+
+
+ - Declare variables
+
+ - while ( nobodyWins AND moreTurns)
+
+	1- Show gameboard
+
+	2- Player turn
+
+	3- Check if player have won 	
+
+	- if ( playerNoWin )
+
+		4- Machine turn
+
+		5- Check if machine have won
+
+  6- Show winner message
