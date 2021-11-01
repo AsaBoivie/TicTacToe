@@ -3,7 +3,7 @@ package com.ya.gruppuppg;
 public class hasPlayerWon {
 
 public static void main(String[] args) {
-
+	// en if-sats som tar reda på om Spelare X har fått "tre i rad"
 		// fÃ¶rsta raden
 		if ((spelPlan[0][0] == 'X' && spelPlan[0][2] == 'X' && spelPlan[0][4] == 'X') ||
 				// andra raden
