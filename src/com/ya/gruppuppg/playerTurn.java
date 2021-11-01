@@ -13,6 +13,38 @@ public class playerTurn {
 
 		System.out.println("Du gjorde ditt val i ruta: " + userInput);
 		
+		switch (userInput) {
+		case 1:  // Ändrar positionen för 0,0 till X
+			spelPlan[0][0] = 'X';
+			break;
+		case 2:  // Ändrar positionen för 0,2 till X
+			spelPlan[0][2] = 'X';
+			break;
+		case 3:  // Ändrar positionen för 0,4 till X
+			spelPlan[0][4] = 'X';
+			break;
+		case 4:  // Ändrar positionen för 2,0 till X
+			spelPlan[2][0] = 'X';
+			break;
+		case 5:  // Ändrar positionen för 2,2 till X
+			spelPlan[2][2] = 'X';
+			break;
+		case 6:  // Ändrar positionen för 2,4 till X
+			spelPlan[2][4] = 'X';
+			break;
+		case 7:  // Ändrar positionen för 4,0 till X
+			spelPlan[4][0] = 'X';
+			break;
+		case 8:  // Ändrar positionen för 4,2 till X
+			spelPlan[4][2] = 'X';
+			break;
+		case 9:  // Ändrar positionen för 4,4 till X
+			spelPlan[4][4] = 'X';
+			break;
+		default:
+			break;
+		}
+		
 		
 	}
 	
