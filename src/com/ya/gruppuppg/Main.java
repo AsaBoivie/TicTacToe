@@ -49,25 +49,101 @@ public class Main {
 			System.out.println();
 		}
 		
-		// Provar att visa spelplanen med numner för att spelare ska kunna välja.		
-		System.out.println();
-				
-		char number = 49;   // Number 49 is equal to '1' in ASCII code
 		
-		for(int i=0; i<=4; i=i+2 ) {
-			for(int j=0; j<=4; j=j+2) {
-				spelPlan[i][j] = number;
-				number++;
-			}
-		}		
-		for(char[] rad : spelPlan)	{
-			System.out.print("   ");
-			for(char i : rad)	{
-				System.out.print(i);
-			}
+		
+		
+		turn = 1;  // Det är inte möjligt mer än 5 turer för spelaren på TicTacToe
+		noPlayerWin = true;
+		noMachineWin = true;
+		
+		while((turn <= 5) && noPlayerWin && noMachineWin) {
+					
+			// 1- Show gameboard			
+			// Visa spelplanen med numner för att spelare ska kunna välja.
 			System.out.println();
+
+			char number = 49; // Number 49 is equal to '1' in ASCII code
+
+			for (int i = 0; i <= 4; i = i + 2) {
+				for (int j = 0; j <= 4; j = j + 2) {
+					spelPlan[i][j] = number;
+					number++;
+				}
+			}
+			for (char[] rad : spelPlan) {
+				System.out.print("   ");
+				for (char i : rad) {
+					System.out.print(i);
+				}
+				System.out.println();
+			}
+			
+			
+			// 2- Player turn
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			// 3- Check if player have won
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			if(noPlayerWin) {
+				
+				// 4- Machine turn
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				// 5- Check if machine have won
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			}			
+		
+		turn++;	 // Nästa tur
+			
 		}
 		
+		// 6- Show winner message
+		
+		
+		
+		
+		
+		
+				
 	 
 	}
 
