@@ -4,7 +4,13 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-	
+		//Declare variables
+		
+		int turn;
+		boolean noPlayerWin;
+		boolean noMachineWin;
+		
+		
 		// Skriv ut spelplan
 		// rad och kolumn, 2D array
 		
