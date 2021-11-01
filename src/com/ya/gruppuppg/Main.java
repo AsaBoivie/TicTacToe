@@ -1,6 +1,7 @@
 package com.ya.gruppuppg;
 
 import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
@@ -34,7 +35,7 @@ public class Main {
 				System.out.print(i);
 			}
 			System.out.println();
-		} // slut på for
+		} // slut pÃ¥ for
 		
 		// Provar att visa spelplanen med 'X' och 'O'.
 		System.out.println();
@@ -60,14 +61,14 @@ public class Main {
 		
 		
 		
-		turn = 1;  // Det är inte möjligt mer än 5 turer för spelaren på TicTacToe
+		turn = 1;  // Det Ã¤r inte mÃ¶jligt mer Ã¤n 5 turer fÃ¶r spelaren pÃ¥ TicTacToe
 		noPlayerWin = true;
 		noMachineWin = true;
 		
 		while((turn <= 5) && noPlayerWin && noMachineWin) {
 					
 			// 1- Show gameboard			
-			// Visa spelplanen med numner för att spelare ska kunna välja.
+			// Visa spelplanen med numner fÃ¶r att spelare ska kunna vÃ¤lja.
 			System.out.println();
 
 			char number = 49; // Number 49 is equal to '1' in ASCII code
@@ -93,9 +94,9 @@ public class Main {
 			
 			// 2- Player turn
 			
-			// h�r tar vi in vad spelaren vill g�ra f�r drag
+			// här tar vi in vad spelaren vill göra för drag
 			Scanner scan = new Scanner(System.in);
-			System.out.println("I vilken ruta vill du s�tta ditt kryss? (1-9)");
+			System.out.println("I vilken ruta vill du sätta ditt kryss? (1-9)");
 			int userInput = scan.nextInt();
 
 			System.out.println("Du gjorde ditt val i ruta: " + userInput);
@@ -103,31 +104,31 @@ public class Main {
 			
 			
 			switch (userInput) {
-			case 1:  // �ndrar positionen f�r 0,0 till X
+			case 1:  // Ändrar positionen för 0,0 till X
 				spelPlan[0][0] = 'X';
 				break;
-			case 2:  // �ndrar positionen f�r 0,2 till X
+			case 2:  // Ändrar positionen för 0,2 till X
 				spelPlan[0][2] = 'X';
 				break;
-			case 3:  // �ndrar positionen f�r 0,4 till X
+			case 3:  // Ändrar positionen för 0,4 till X
 				spelPlan[0][4] = 'X';
 				break;
-			case 4:  // �ndrar positionen f�r 2,0 till X
+			case 4:  // Ändrar positionen för 2,0 till X
 				spelPlan[2][0] = 'X';
 				break;
-			case 5:  // �ndrar positionen f�r 2,2 till X
+			case 5:  // Ändrar positionen för 2,2 till X
 				spelPlan[2][2] = 'X';
 				break;
-			case 6:  // �ndrar positionen f�r 2,4 till X
+			case 6:  // Ändrar positionen för 2,4 till X
 				spelPlan[2][4] = 'X';
 				break;
-			case 7:  // �ndrar positionen f�r 4,0 till X
+			case 7:  // Ändrar positionen för 4,0 till X
 				spelPlan[4][0] = 'X';
 				break;
-			case 8:  // �ndrar positionen f�r 4,2 till X
+			case 8:  // Ändrar positionen för 4,2 till X
 				spelPlan[4][2] = 'X';
 				break;
-			case 9:  // �ndrar positionen f�r 4,4 till X
+			case 9:  // Ändrar positionen för 4,4 till X
 				spelPlan[4][4] = 'X';
 				break;
 			default:
@@ -144,21 +145,21 @@ public class Main {
 			// 3- Check if player have won
 			
 			
-			// första raden
+			// fÃ¶rsta raden
 			if ((spelPlan[0][0] == 'X' && spelPlan[0][2] == 'X' && spelPlan[0][4] == 'X') ||
 					// andra raden
 					(spelPlan[2][0] == 'X' && spelPlan[2][2] == 'X' && spelPlan[2][4] == 'X') ||
 					// tredje raden
 					(spelPlan[4][0] == 'X' && spelPlan[4][2] == 'X' && spelPlan[4][4] == 'X') ||
 
-					// villkor för första kolumnen
+					// villkor fÃ¶r fÃ¶rsta kolumnen
 					(spelPlan[0][0] == 'X' && spelPlan[2][0] == 'X' && spelPlan[4][0] == 'X') ||
 					// andra kolumnen
 					(spelPlan[0][2] == 'X' && spelPlan[2][2] == 'X' && spelPlan[4][2] == 'X') ||
 					// tredje kolumnen
 					(spelPlan[0][4] == 'X' && spelPlan[2][4] == 'X' && spelPlan[4][4] == 'X') ||
 
-					// villkor för första diagonalen
+					// villkor fÃ¶r fÃ¶rsta diagonalen
 					(spelPlan[0][0] == 'X' && spelPlan[2][2] == 'X' && spelPlan[4][4] == 'X') ||
 					// andra diagonalen
 					(spelPlan[0][4] == 'X' && spelPlan[2][2] == 'X' && spelPlan[4][0] == 'X'))
@@ -168,7 +169,7 @@ public class Main {
 				System.out.println("Spelare X har vunnit tre i rad!");
 			} else {
 				// Annars skrivs detta ut:
-				System.out.println("Spelare X har förlorat");
+				System.out.println("Spelare X har fÃ¶rlorat");
 			}
 			
 			
@@ -183,23 +184,74 @@ public class Main {
 				
 				// 4- Machine turn
 				
+				//Slumpmässigt drag
+				Random rand = new Random();
+				int machineTurn = rand.nextInt(9) + 1:
+					
+				switch (machineTurn) {
+			case 1:  // Ändrar positionen för 0,0 till O vid rand 1
+				spelPlan[0][0] = 'O';
+				break;
+			case 2:  // Ändrar positionen för 0,2 till O vid rand 2
+				spelPlan[0][2] = 'O';
+				break;
+			case 3:  // Ändrar positionen för 0,4 till O vid rand 3
+				spelPlan[0][4] = 'O';
+				break;
+			case 4:  // Ändrar positionen för 2,0 till O vid rand 4
+				spelPlan[2][0] = 'O';
+				break;
+			case 5:  // Ändrar positionen för 2,2 till O vid rand 5
+				spelPlan[2][2] = 'O';
+				break;
+			case 6:  // Ändrar positionen för 2,4 till O vid rand 6
+				spelPlan[2][4] = 'O';
+				break;
+			case 7:  // Ändrar positionen för 4,0 till O vid rand 7
+				spelPlan[4][0] = 'O';
+				break;
+			case 8:  // Ändrar positionen för 4,2 till O vid rand 8
+				spelPlan[4][2] = 'O';
+				break;
+			case 9:  // Ändrar positionen för 4,4 till O vid rand 9
+				spelPlan[4][4] = 'O';
+				break;
+			default:
+				break;
+			}
 				
 				
-				
-				
-				
-				
+			System.out.println("Datorn valde ruta: " + machineTurn);
+
 				
 				
 				
 				
 				
 				// 5- Check if machine have won
-				
-				
-				
-				
-				
+				// första raden tre i rad
+			if ((spelPlan[0][0] == 'O' && spelPlan[0][2] == 'O' && spelPlan[0][4] == 'O') ||
+					// andra raden tre i rad
+					(spelPlan[2][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[2][4] == 'O') ||
+					// tredje raden tre i rad
+					(spelPlan[4][0] == 'O' && spelPlan[4][2] == 'O' && spelPlan[4][4] == 'O') ||
+
+					// första kolumnen tre i rad
+					(spelPlan[0][0] == 'O' && spelPlan[2][0] == 'O' && spelPlan[4][0] == 'O') ||
+					// andra kolumnen tre i rad
+					(spelPlan[0][2] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][2] == 'O') ||
+					// tredje kolumnen tre i rad
+					(spelPlan[0][4] == 'O' && spelPlan[2][4] == 'O' && spelPlan[4][4] == 'O') ||
+
+					// diagonal uppifrån ned tre i rad
+					(spelPlan[0][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][4] == 'O') ||
+					// diagonal nedifrån upp tre i rad
+					(spelPlan[0][4] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][0] == 'O'))
+
+			{
+				// Om villkoren ovan uppfylls skrivs detta ut:
+				System.out.println("Tyvärr, datorn vann!");
+			} 
 				
 				
 				
@@ -207,7 +259,7 @@ public class Main {
 				
 			}			
 		
-		turn++;	 // Nästa tur
+		turn++;	 // NÃ¤sta tur
 			
 		}
 		
