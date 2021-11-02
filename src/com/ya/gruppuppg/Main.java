@@ -186,7 +186,7 @@ public class Main {
 				
 				//Slumpmässigt drag
 				Random rand = new Random();
-				int machineTurn = rand.nextInt(9) + 1:
+				int machineTurn = rand.nextInt(9) + 1;
 					
 				switch (machineTurn) {
 			case 1:  // Ändrar positionen för 0,0 till O vid rand 1
