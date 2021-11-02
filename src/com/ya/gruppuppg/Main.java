@@ -65,20 +65,23 @@ public class Main {
 		noPlayerWin = true;
 		noMachineWin = true;
 		
-		while((turn <= 5) && noPlayerWin && noMachineWin) {
+		System.out.println();
+
+		char number = 49; // Number 49 is equal to '1' in ASCII code
+
+		for (int i = 0; i <= 4; i = i + 2) {
+			for (int j = 0; j <= 4; j = j + 2) {
+				spelPlan[i][j] = number;
+				number++;
+			}
+		}
+		
+		
+		while((turn <= 5) && (noPlayerWin == true) && (noMachineWin == true)) {
 					
 			// 1- Show gameboard			
 			// Visa spelplanen med numner fÃ¶r att spelare ska kunna vÃ¤lja.
-			System.out.println();
-
-			char number = 49; // Number 49 is equal to '1' in ASCII code
-
-			for (int i = 0; i <= 4; i = i + 2) {
-				for (int j = 0; j <= 4; j = j + 2) {
-					spelPlan[i][j] = number;
-					number++;
-				}
-			}
+			
 			for (char[] rad : spelPlan) {
 				System.out.print("   ");
 				for (char i : rad) {
@@ -165,11 +168,12 @@ public class Main {
 					(spelPlan[0][4] == 'X' && spelPlan[2][2] == 'X' && spelPlan[4][0] == 'X'))
 
 			{
+				noPlayerWin = false;
 				// Om villkoren ovan uppfylls skrivs detta ut:
-				System.out.println("Spelare X har vunnit tre i rad!");
+				//System.out.println("Spelare X har vunnit tre i rad!");
 			} else {
 				// Annars skrivs detta ut:
-				System.out.println("Spelare X har fÃ¶rlorat");
+				//System.out.println("Spelare X har fÃ¶rlorat");
 			}
 			
 			
@@ -250,7 +254,8 @@ public class Main {
 
 			{
 				// Om villkoren ovan uppfylls skrivs detta ut:
-				System.out.println("Tyvärr, datorn vann!");
+				noMachineWin = false;
+				//System.out.println("Tyvärr, datorn vann!");
 			} 
 				
 				
@@ -265,8 +270,14 @@ public class Main {
 		
 		// 6- Show winner message
 		
+		if(noPlayerWin == false) {
+			System.out.println("Spelaren har vunnit");
+		}
 		
 		
+		if(noMachineWin == false) {
+			System.out.println("Maskinen har vunnit");
+		}
 		
 		
 		
@@ -275,3 +286,4 @@ public class Main {
 	}
 
 }
+
