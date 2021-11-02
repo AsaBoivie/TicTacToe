@@ -3,6 +3,17 @@ package com.ya.gruppuppg;
 public class hasPlayerWon {
 
 public static void main(String[] args) {
+	
+	String firstLine = "" + spelPLan[0][0] + spelPlan[0][2] + spelPlan[0][4];
+	if (firstLine.equals("XXX")) {
+		// kryssen vann
+	} else if (firstLine.equals("OOO")) {
+		// O vann
+	} else
+		System.out.println("Ingen har vunnit");
+	
+	
+	
 	// en if-sats som tar reda på om Spelare X har fått "tre i rad"
 		// fÃ¶rsta raden
 		if ((spelPlan[0][0] == 'X' && spelPlan[0][2] == 'X' && spelPlan[0][4] == 'X') ||
