@@ -189,8 +189,84 @@ public class Main {
 				// 4- Machine turn
 				
 				//Slumpmässigt drag
-				Random rand = new Random();
-				int machineTurn = rand.nextInt(9) + 1;
+				
+				// Prova valideling
+				
+				boolean CellTagit = true;
+				int machineTurn = 0;
+				
+				while( CellTagit == true ) {
+					
+					Random rand = new Random();
+					machineTurn = rand.nextInt(9) + 1;
+					
+					switch(machineTurn) {
+					
+					case 1:
+						if(spelPlan[0][0] == '1') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 2:
+						if(spelPlan[0][2] == '2') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 3:
+						if(spelPlan[0][4] == '3') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 4:
+						if(spelPlan[2][0] == '4') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 5:
+						if(spelPlan[2][2] == '5') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 6:
+						if(spelPlan[2][4] == '6') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 7:
+						if(spelPlan[4][0] == '7') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 8:
+						if(spelPlan[4][2] == '8') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					case 9:
+						if(spelPlan[4][4] == '9') {
+							CellTagit = false;
+						}
+						else {
+							CellTagit = true;							
+						}
+					}					
+				}
 					
 				switch (machineTurn) {
 			case 1:  // Ändrar positionen för 0,0 till O vid rand 1
