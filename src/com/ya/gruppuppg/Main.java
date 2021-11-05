@@ -10,8 +10,12 @@ public class Main {
 		//Declare variables
 		
 		int turn;
-		boolean noPlayerWin;
-		boolean noMachineWin;
+		boolean playerWins;
+		boolean machineWins;
+		boolean takenCell;
+		boolean taken;
+		int machineTurn;
+		int userInput;
 		
 		
 		// Skriv ut spelplan
@@ -23,21 +27,24 @@ public class Main {
 		// - + - + -
 		// 7 | 8 | 9		[4][0]	[4][2]	[4][4]
 		
-		char[][] spelPlan = {{' ', '|', ' ', '|', ' '}, 
+		char[][] spelPlan = { {'1', '|', '2', '|', '3'}, 
 							  {'-', '+', '-', '+', '-'},
-							  {' ', '|', ' ', '|', ' '},
+							  {'4', '|', '5', '|', '6'},
 							  {'-', '+', '-', '+', '-'},
-							  {' ', '|', ' ', '|', ' '}};
+							  {'7', '|', '8', '|', '9'}};
 		
 		// Skriva ut spelplanen mha 2st for-loopar
+		/*
 		for(char[] rad : spelPlan)	{
 			for(char i : rad)	{
 				System.out.print(i);
 			}
 			System.out.println();
 		} // slut pÃ¥ for
+		*/
 		
 		// Provar att visa spelplanen med 'X' och 'O'.
+		/*
 		System.out.println();
 		
 		spelPlan[0][0] = 'X';
@@ -57,16 +64,16 @@ public class Main {
 			}
 			System.out.println();
 		}
-		
-		
-		
+		*/	
 		
 		turn = 1;  // Det Ã¤r inte mÃ¶jligt mer Ã¤n 5 turer fÃ¶r spelaren pÃ¥ TicTacToe
-		noPlayerWin = true;
-		noMachineWin = true;
-		
+		playerWins = false;
+		machineWins = false;
+		Scanner scan = new Scanner(System.in);
+		Random rand = new Random();
+			
+		/*
 		System.out.println();
-
 		char number = 49; // Number 49 is equal to '1' in ASCII code
 
 		for (int i = 0; i <= 4; i = i + 2) {
@@ -75,12 +82,14 @@ public class Main {
 				number++;
 			}
 		}
+		*/
 		
-		
-		while((turn <= 5) && (noPlayerWin == true) && (noMachineWin == true)) {
+		while((turn <= 5) && (playerWins == false) && (machineWins == false)) {
 					
 			// 1- Show gameboard			
 			// Visa spelplanen med numner fÃ¶r att spelare ska kunna vÃ¤lja.
+			
+			System.out.println();
 			
 			for (char[] rad : spelPlan) {
 				System.out.print("   ");
@@ -88,66 +97,84 @@ public class Main {
 					System.out.print(i);
 				}
 				System.out.println();
-			}
-			
-			
-			
-			
-			
+			}		
+			System.out.println();
 			
 			// 2- Player turn
 			
 			// här tar vi in vad spelaren vill göra för drag
-			Scanner scan = new Scanner(System.in);
-			System.out.println("I vilken ruta vill du sätta ditt kryss? (1-9)");
-			int userInput = scan.nextInt();
+			
+			taken = false;
+			while (taken == false) {
+			
+				//Scanner scan = new Scanner(System.in);
+				System.out.println("I vilken ruta vill du sätta ditt kryss? (1-9)");
+				userInput = scan.nextInt();
 
-			System.out.println("Du gjorde ditt val i ruta: " + userInput);
+				System.out.println("Du gjorde ditt val i ruta: " + userInput);
+				
+				
+				switch (userInput) {
+					case 1:
+						if (spelPlan[0][0] == '1') {
+							spelPlan[0][0] = 'X';
+							taken = true; }
+						break;
+					case 2:
+						if (spelPlan[0][2] == '2') {
+							spelPlan[0][2] = 'X';
+							taken = true; }
+						break;
+					case 3:
+						if (spelPlan[0][4] == '3') {
+							spelPlan[0][4] = 'X';
+							taken = true; }
+						break;
+					case 4:
+						if (spelPlan[2][0] == '4') {
+							spelPlan[2][0] = 'X';
+							taken = true; }
+						break;
+					case 5:
+						if (spelPlan[2][2] == '5') {
+							spelPlan[2][2] = 'X';
+							taken = true; }
+						break;
+					case 6:
+						if (spelPlan[2][4] == '6') {
+							spelPlan[2][4] = 'X';
+							taken = true; }
+						break;
+					case 7:
+						if (spelPlan[4][0] == '7') {
+							spelPlan[4][0] = 'X';
+							taken = true; }
+						break;
+					case 8:
+						if (spelPlan[4][2] == '8') {
+							spelPlan[4][2] = 'X';
+							taken = true; }
+						break;
+					case 9:
+						if (spelPlan[4][4] == '9') {
+							spelPlan[4][4] = 'X';
+							taken = true; }
+						break;
+					default:
+						//System.out.println("Platsen upptagen, gör ett nytt försök");
+						break;
+				}// slut på switch
+				
+				if(taken == false) {
+					System.out.println("Platsen upptagen, gör ett nytt försök");
+				}
+			}// slut på while
 			
 			
 			
-			switch (userInput) {
-			case 1:  // Ändrar positionen för 0,0 till X
-				spelPlan[0][0] = 'X';
-				break;
-			case 2:  // Ändrar positionen för 0,2 till X
-				spelPlan[0][2] = 'X';
-				break;
-			case 3:  // Ändrar positionen för 0,4 till X
-				spelPlan[0][4] = 'X';
-				break;
-			case 4:  // Ändrar positionen för 2,0 till X
-				spelPlan[2][0] = 'X';
-				break;
-			case 5:  // Ändrar positionen för 2,2 till X
-				spelPlan[2][2] = 'X';
-				break;
-			case 6:  // Ändrar positionen för 2,4 till X
-				spelPlan[2][4] = 'X';
-				break;
-			case 7:  // Ändrar positionen för 4,0 till X
-				spelPlan[4][0] = 'X';
-				break;
-			case 8:  // Ändrar positionen för 4,2 till X
-				spelPlan[4][2] = 'X';
-				break;
-			case 9:  // Ändrar positionen för 4,4 till X
-				spelPlan[4][4] = 'X';
-				break;
-			default:
-				break;
-			}
-			
-			
-
-			
-			
-			
-			
-			
+				
 			// 3- Check if player have won
-			
-			
+					
 			// fÃ¶rsta raden
 			if ((spelPlan[0][0] == 'X' && spelPlan[0][2] == 'X' && spelPlan[0][4] == 'X') ||
 					// andra raden
@@ -168,23 +195,16 @@ public class Main {
 					(spelPlan[0][4] == 'X' && spelPlan[2][2] == 'X' && spelPlan[4][0] == 'X'))
 
 			{
-				noPlayerWin = false;
+				playerWins = true;
 				// Om villkoren ovan uppfylls skrivs detta ut:
 				//System.out.println("Spelare X har vunnit tre i rad!");
-			} else {
+			//} else {
 				// Annars skrivs detta ut:
 				//System.out.println("Spelare X har fÃ¶rlorat");
 			}
+					
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			if(noPlayerWin) {
+			if((playerWins == false) && (turn <= 4)) {
 				
 				// 4- Machine turn
 				
@@ -192,173 +212,148 @@ public class Main {
 				
 				// Prova valideling
 				
-				boolean CellTagit = true;
-				int machineTurn = 0;
+				takenCell = true;
+				machineTurn = 0;
 				
-				while( CellTagit == true ) {
+				while( takenCell == true ) {
 					
-					Random rand = new Random();
+					//Random rand = new Random();
 					machineTurn = rand.nextInt(9) + 1;
 					
 					switch(machineTurn) {
 					
 					case 1:
 						if(spelPlan[0][0] == '1') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 2:
 						if(spelPlan[0][2] == '2') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 3:
 						if(spelPlan[0][4] == '3') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 4:
 						if(spelPlan[2][0] == '4') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 5:
 						if(spelPlan[2][2] == '5') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 6:
 						if(spelPlan[2][4] == '6') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 7:
 						if(spelPlan[4][0] == '7') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 8:
 						if(spelPlan[4][2] == '8') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					case 9:
 						if(spelPlan[4][4] == '9') {
-							CellTagit = false;
+							takenCell = false;
 						}
-						else {
-							CellTagit = true;							
-						}
+						break;
 					}					
 				}
 					
 				switch (machineTurn) {
-			case 1:  // Ändrar positionen för 0,0 till O vid rand 1
-				spelPlan[0][0] = 'O';
-				break;
-			case 2:  // Ändrar positionen för 0,2 till O vid rand 2
-				spelPlan[0][2] = 'O';
-				break;
-			case 3:  // Ändrar positionen för 0,4 till O vid rand 3
-				spelPlan[0][4] = 'O';
-				break;
-			case 4:  // Ändrar positionen för 2,0 till O vid rand 4
-				spelPlan[2][0] = 'O';
-				break;
-			case 5:  // Ändrar positionen för 2,2 till O vid rand 5
-				spelPlan[2][2] = 'O';
-				break;
-			case 6:  // Ändrar positionen för 2,4 till O vid rand 6
-				spelPlan[2][4] = 'O';
-				break;
-			case 7:  // Ändrar positionen för 4,0 till O vid rand 7
-				spelPlan[4][0] = 'O';
-				break;
-			case 8:  // Ändrar positionen för 4,2 till O vid rand 8
-				spelPlan[4][2] = 'O';
-				break;
-			case 9:  // Ändrar positionen för 4,4 till O vid rand 9
-				spelPlan[4][4] = 'O';
-				break;
-			default:
-				break;
-			}
+					case 1:  // Ändrar positionen för 0,0 till O vid rand 1
+						spelPlan[0][0] = 'O';
+						break;
+					case 2:  // Ändrar positionen för 0,2 till O vid rand 2
+						spelPlan[0][2] = 'O';
+						break;
+					case 3:  // Ändrar positionen för 0,4 till O vid rand 3
+						spelPlan[0][4] = 'O';
+						break;
+					case 4:  // Ändrar positionen för 2,0 till O vid rand 4
+						spelPlan[2][0] = 'O';
+						break;
+					case 5:  // Ändrar positionen för 2,2 till O vid rand 5
+						spelPlan[2][2] = 'O';
+						break;
+					case 6:  // Ändrar positionen för 2,4 till O vid rand 6
+						spelPlan[2][4] = 'O';
+						break;
+					case 7:  // Ändrar positionen för 4,0 till O vid rand 7
+						spelPlan[4][0] = 'O';
+						break;
+					case 8:  // Ändrar positionen för 4,2 till O vid rand 8
+						spelPlan[4][2] = 'O';
+						break;
+					case 9:  // Ändrar positionen för 4,4 till O vid rand 9
+						spelPlan[4][4] = 'O';
+						break;
+					default:
+						break;
+				}
 				
 				
-			System.out.println("Datorn valde ruta: " + machineTurn);
+				System.out.println("Datorn valde ruta: " + machineTurn);
 
-				
-				
-				
-				
-				
+										
 				// 5- Check if machine have won
 				// första raden tre i rad
-			if ((spelPlan[0][0] == 'O' && spelPlan[0][2] == 'O' && spelPlan[0][4] == 'O') ||
-					// andra raden tre i rad
-					(spelPlan[2][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[2][4] == 'O') ||
-					// tredje raden tre i rad
-					(spelPlan[4][0] == 'O' && spelPlan[4][2] == 'O' && spelPlan[4][4] == 'O') ||
-
-					// första kolumnen tre i rad
-					(spelPlan[0][0] == 'O' && spelPlan[2][0] == 'O' && spelPlan[4][0] == 'O') ||
-					// andra kolumnen tre i rad
-					(spelPlan[0][2] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][2] == 'O') ||
-					// tredje kolumnen tre i rad
-					(spelPlan[0][4] == 'O' && spelPlan[2][4] == 'O' && spelPlan[4][4] == 'O') ||
-
-					// diagonal uppifrån ned tre i rad
-					(spelPlan[0][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][4] == 'O') ||
-					// diagonal nedifrån upp tre i rad
-					(spelPlan[0][4] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][0] == 'O'))
-
-			{
-				// Om villkoren ovan uppfylls skrivs detta ut:
-				noMachineWin = false;
-				//System.out.println("Tyvärr, datorn vann!");
-			} 
-				
-				
-				
-				
-				
-			}			
-		
-		turn++;	 // NÃ¤sta tur
-			
+				if ((spelPlan[0][0] == 'O' && spelPlan[0][2] == 'O' && spelPlan[0][4] == 'O') ||
+						// andra raden tre i rad
+						(spelPlan[2][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[2][4] == 'O') ||
+						// tredje raden tre i rad
+						(spelPlan[4][0] == 'O' && spelPlan[4][2] == 'O' && spelPlan[4][4] == 'O') ||
+	
+						// första kolumnen tre i rad
+						(spelPlan[0][0] == 'O' && spelPlan[2][0] == 'O' && spelPlan[4][0] == 'O') ||
+						// andra kolumnen tre i rad
+						(spelPlan[0][2] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][2] == 'O') ||
+						// tredje kolumnen tre i rad
+						(spelPlan[0][4] == 'O' && spelPlan[2][4] == 'O' && spelPlan[4][4] == 'O') ||
+	
+						// diagonal uppifrån ned tre i rad
+						(spelPlan[0][0] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][4] == 'O') ||
+						// diagonal nedifrån upp tre i rad
+						(spelPlan[0][4] == 'O' && spelPlan[2][2] == 'O' && spelPlan[4][0] == 'O'))
+	
+				{
+					// Om villkoren ovan uppfylls skrivs detta ut:
+					machineWins = true;
+					//System.out.println("Tyvärr, datorn vann!");
+				} 			
+			}				
+		turn++;	 // NÃ¤sta tur		
 		}
 		
 		// 6- Show winner message
-		
-		if(noPlayerWin == false) {
-			System.out.println("Spelaren har vunnit");
+		System.out.println();
+		for (char[] rad : spelPlan) {
+			System.out.print("   ");
+			for (char i : rad) {
+				System.out.print(i);
+			}
+			System.out.println();
 		}
+		System.out.println();
 		
-		
-		if(noMachineWin == false) {
-			System.out.println("Maskinen har vunnit");
+		if(playerWins == true) {
+			System.out.println("You win!! Congratulations!");
+		}else if(machineWins) {
+			System.out.println("The machine wins. You lose!");
+		}else {
+			System.out.println("Draw. Nobody won.");
 		}
-		
-		
-		
-				
-	 
+			 
 	}
 
 }
